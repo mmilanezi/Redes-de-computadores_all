@@ -1,0 +1,48 @@
+--- ping c1 -> r1 (ULA) ---
+PING fd00:1234:5678::1 (fd00:1234:5678::1) 56 data bytes
+64 bytes from fd00:1234:5678::1: icmp_seq=1 ttl=64 time=0.261 ms
+64 bytes from fd00:1234:5678::1: icmp_seq=2 ttl=64 time=0.059 ms
+64 bytes from fd00:1234:5678::1: icmp_seq=3 ttl=64 time=0.057 ms
+64 bytes from fd00:1234:5678::1: icmp_seq=4 ttl=64 time=0.103 ms
+64 bytes from fd00:1234:5678::1: icmp_seq=5 ttl=64 time=0.128 ms
+
+--- fd00:1234:5678::1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4086ms
+rtt min/avg/max/mdev = 0.057/0.121/0.261/0.074 ms
+IPv6 ULA de c2: fd00:1234:5678:0:3087:e9ff:fef0:ff4b
+--- ping c1 -> c2 (ULA) ---
+PING fd00:1234:5678:0:3087:e9ff:fef0:ff4b (fd00:1234:5678:0:3087:e9ff:fef0:ff4b) 56 data bytes
+64 bytes from fd00:1234:5678:0:3087:e9ff:fef0:ff4b: icmp_seq=1 ttl=64 time=0.087 ms
+64 bytes from fd00:1234:5678:0:3087:e9ff:fef0:ff4b: icmp_seq=2 ttl=64 time=0.053 ms
+64 bytes from fd00:1234:5678:0:3087:e9ff:fef0:ff4b: icmp_seq=3 ttl=64 time=0.052 ms
+64 bytes from fd00:1234:5678:0:3087:e9ff:fef0:ff4b: icmp_seq=4 ttl=64 time=0.056 ms
+64 bytes from fd00:1234:5678:0:3087:e9ff:fef0:ff4b: icmp_seq=5 ttl=64 time=0.062 ms
+
+--- fd00:1234:5678:0:3087:e9ff:fef0:ff4b ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4098ms
+rtt min/avg/max/mdev = 0.052/0.062/0.087/0.013 ms
+--- tabela de vizinhanca em c1 ---
+fd00:1234:5678:0:3087:e9ff:fef0:ff4b lladdr 32:87:e9:f0:ff:4b REACHABLE 
+fe80::9875:e2ff:fee2:bd92 lladdr 9a:75:e2:e2:bd:92 router DELAY 
+fd00:1234:5678::1 lladdr 9a:75:e2:e2:bd:92 router REACHABLE 
+--- iperf3: subindo servidor em c2 ---
+--- iperf3: cliente em c1 -> c2 (fd00:1234:5678:0:3087:e9ff:fef0:ff4b), 10s ---
+Connecting to host fd00:1234:5678:0:3087:e9ff:fef0:ff4b, port 5201
+[  5] local fd00:1234:5678:0:88db:a2ff:fe8d:eafd port 53740 connected to fd00:1234:5678:0:3087:e9ff:fef0:ff4b port 5201
+[ ID] Interval           Transfer     Bitrate         Retr  Cwnd
+[  5]   0.00-1.00   sec  3.08 GBytes  26.4 Gbits/sec    0   2.31 MBytes       
+[  5]   1.00-2.00   sec  3.19 GBytes  27.4 Gbits/sec    1   2.32 MBytes       
+[  5]   2.00-3.00   sec  3.11 GBytes  26.7 Gbits/sec    0   2.32 MBytes       
+[  5]   3.00-4.00   sec  3.26 GBytes  28.0 Gbits/sec    0   2.32 MBytes       
+[  5]   4.00-5.00   sec  3.33 GBytes  28.6 Gbits/sec    0   2.34 MBytes       
+[  5]   5.00-6.00   sec  3.30 GBytes  28.4 Gbits/sec    0   2.36 MBytes       
+[  5]   6.00-7.00   sec  3.37 GBytes  29.0 Gbits/sec    0   2.36 MBytes       
+[  5]   7.00-8.00   sec  3.19 GBytes  27.4 Gbits/sec  747   1.74 MBytes       
+[  5]   8.00-9.00   sec  3.12 GBytes  26.8 Gbits/sec    0   1.89 MBytes       
+[  5]   9.00-10.01  sec  3.22 GBytes  27.3 Gbits/sec  2086   1.45 MBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bitrate         Retr
+[  5]   0.00-10.01  sec  32.2 GBytes  27.6 Gbits/sec  2834             sender
+[  5]   0.00-10.01  sec  32.2 GBytes  27.6 Gbits/sec                  receiver
+
+iperf Done.

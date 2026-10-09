@@ -1,0 +1,86 @@
+services:
+  c1:
+    build: .
+    hostname: c1
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    sysctls:
+      net.ipv6.conf.all.accept_ra: 2
+    networks:
+      net-c1:
+        ipv4_address: 192.0.2.11
+
+  r1:
+    build: .
+    hostname: r1
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    sysctls:
+      net.ipv4.ip_forward: 1
+      net.ipv6.conf.all.forwarding: 1
+      net.ipv6.conf.all.accept_ra: 2
+    volumes:
+      - ./logs:/logs
+    networks:
+      net-c1:
+        ipv4_address: 192.0.2.1
+      net-transit:
+        ipv4_address: 198.51.100.1
+
+  r2:
+    build: .
+    hostname: r2
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    sysctls:
+      net.ipv4.ip_forward: 1
+      net.ipv6.conf.all.forwarding: 1
+      net.ipv6.conf.all.accept_ra: 2
+    volumes:
+      - ./logs:/logs
+    networks:
+      net-transit:
+        ipv4_address: 198.51.100.2
+      net-c2:
+        ipv4_address: 203.0.113.1
+
+  c2:
+    build: .
+    hostname: c2
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    sysctls:
+      net.ipv6.conf.all.accept_ra: 2
+    networks:
+      net-c2:
+        ipv4_address: 203.0.113.12
+
+networks:
+  net-c1:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 192.0.2.0/24
+          gateway: 192.0.2.254
+        - subnet: fd00:dead:beef:1::/64
+  net-transit:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 198.51.100.0/24
+          gateway: 198.51.100.254
+        - subnet: fd00:dead:beef:ffff::/64
+  net-c2:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 203.0.113.0/24
+          gateway: 203.0.113.254
+        - subnet: fd00:dead:beef:2::/64

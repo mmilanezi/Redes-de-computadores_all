@@ -1,0 +1,23 @@
+enable
+configure terminal
+hostname R2
+no ip domain-lookup
+interface FastEthernet0/0
+ ip address 12.12.12.2 255.255.255.0
+ no shutdown
+interface FastEthernet0/1
+ ip address 172.16.0.1 255.255.255.0
+ no shutdown
+interface FastEthernet1/0
+ ip address 23.23.23.2 255.255.255.0
+ no shutdown
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+exit
+router bgp 200
+ neighbor 12.12.12.1 remote-as 100
+ neighbor 23.23.23.3 remote-as 300
+ network 172.16.0.0 mask 255.255.255.0
+ network 2.2.2.2 mask 255.255.255.255
+end
+write memory

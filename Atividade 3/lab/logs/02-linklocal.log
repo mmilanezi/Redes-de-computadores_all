@@ -1,0 +1,8 @@
+--- c1 ---
+2: eth0@if13: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default  link-netnsid 0
+    inet6 fe80::88db:a2ff:fe8d:eafd/64 scope link 
+       valid_lft forever preferred_lft forever
+--- c2 ---
+2: eth0@if14: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default  link-netnsid 0
+    inet6 fe80::3087:e9ff:fef0:ff4b/64 scope link 
+       valid_lft forever preferred_lft forever

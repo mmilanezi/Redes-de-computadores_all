@@ -1,0 +1,11 @@
+--- c1: rota padrao IPv4 -> r1 ---
+--- c2: rota padrao IPv4 -> r2 ---
+--- c1: removendo rota IPv6 padrao do IPAM do Docker (mantem so a do RA) ---
+--- c2: removendo rota IPv6 padrao do IPAM do Docker (mantem so a do RA) ---
+
+--- c1: rotas finais ---
+default via 192.0.2.1 dev eth0 
+default via fe80::30b5:c3ff:fedb:304d dev eth0 proto ra metric 1024 expires 1797sec hoplimit 64 pref medium
+--- c2: rotas finais ---
+default via 203.0.113.1 dev eth0 
+default via fe80::804b:2cff:fe0b:2297 dev eth0 proto ra metric 1024 expires 1797sec hoplimit 64 pref medium

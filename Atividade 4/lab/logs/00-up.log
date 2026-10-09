@@ -1,0 +1,100 @@
+ Image lab-r1 Building 
+ Image lab-r2 Building 
+ Image lab-c2 Building 
+ Image lab-c1 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.11kB 0.0s done
+#1 DONE 0.0s
+
+#2 [c1 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 336B 0.0s done
+#2 DONE 0.0s
+
+#3 [r2 internal] load metadata for docker.io/library/ubuntu:24.04
+#3 DONE 1.3s
+
+#4 [r1 internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [c1 1/4] FROM docker.io/library/ubuntu:24.04@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517
+#5 resolve docker.io/library/ubuntu:24.04@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517 0.0s done
+#5 DONE 0.0s
+
+#6 [r2 internal] load build context
+#6 transferring context: 72B done
+#6 DONE 0.0s
+
+#7 [c2 2/4] RUN apt-get update && apt-get install -y --no-install-recommends     iproute2     iputils-ping     radvd     tcpdump     iperf3     procps     grep     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [c2 3/4] COPY scripts/ /scripts/
+#8 CACHED
+
+#9 [c2 4/4] RUN chmod +x /scripts/*.sh
+#9 CACHED
+
+#10 [c1] exporting to image
+#10 exporting layers done
+#10 exporting manifest sha256:9d3ec4d9663f0c114cff33a130993a41af95d9b62d1ed30c76714f9e96e6cd73 done
+#10 exporting config sha256:634fa50dd9440a9a998da241a0abd22c0114058e7e8d55e5b45ef35f2c08880f done
+#10 exporting attestation manifest sha256:ead39d3ee582c584eb733de6060db23fbb880adae97f3769be0991d8c091e53c 0.0s done
+#10 exporting manifest list sha256:a3c05fb173adcbf7cef9acf4518ce9842b67b3bd8292a31beaf53b657729453b 0.0s done
+#10 naming to docker.io/library/lab-c1:latest
+#10 naming to docker.io/library/lab-c1:latest 0.0s done
+#10 unpacking to docker.io/library/lab-c1:latest 0.0s done
+#10 DONE 0.2s
+
+#11 [c2] exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:b5dc9c9dbd26913a0ad48fbb0802923d3567da0cd4fa55ae353d8b142b20e0ec done
+#11 exporting config sha256:23f36f0257da33f002708d02d8615ef3cc1362a025d938834777f4949f66f620 done
+#11 exporting attestation manifest sha256:28b6d8af55ec564ee314d4e4d8d65dffffab4ccdc27e2c01b68e56a63d8b48ce 0.0s done
+#11 exporting manifest list sha256:738b3a81bb2997b7d0b00362a3df904ce3a681651087861e5fe6d8f739170d34 0.0s done
+#11 naming to docker.io/library/lab-c2:latest 0.0s done
+#11 unpacking to docker.io/library/lab-c2:latest 0.0s done
+#11 DONE 0.2s
+
+#12 [r1] exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:7d3cd29f4b42f54343bc6ea76d4ce161912e016edd2aa109f1e7fd7160419050 done
+#12 exporting config sha256:3e695f4b7d395e79e097787ee76668bd660267de547da5043af96aac9eaf9d4f done
+#12 exporting attestation manifest sha256:86b2a98d0a56ebbb7e4e09a9fe30c649a8da39765eec5b7a0884789c07ddd02a 0.0s done
+#12 exporting manifest list sha256:9a5abf6823d18ff5f36bd22304b3308329e844823569d353ed9c9a9996a81a76 0.0s done
+#12 naming to docker.io/library/lab-r1:latest 0.0s done
+#12 unpacking to docker.io/library/lab-r1:latest 0.0s done
+#12 DONE 0.2s
+
+#13 [r2] exporting to image
+#13 exporting layers done
+#13 exporting manifest sha256:5f416c576c3a0543c5242184764a71e84ad38fc32414d2e94e80cc9a1fa34245 done
+#13 exporting config sha256:7a6a78cc26e930e902de15678f5dd147805ba161fffacfe857bcc48cba0ee721 done
+#13 exporting attestation manifest sha256:4461b86ce689f49e1f5b47dbc65e55bfa2f8450f53ea5f0125887e1262bed1ec 0.0s done
+#13 exporting manifest list sha256:5225862894ce8522e51aadafe0c737369e90ca031ae28737f3446e3441e14ca1 0.0s done
+#13 naming to docker.io/library/lab-r2:latest 0.0s done
+#13 unpacking to docker.io/library/lab-r2:latest 0.0s done
+#13 DONE 0.2s
+
+#14 [c2] resolving provenance for metadata file
+#14 DONE 0.1s
+
+#15 [c1] resolving provenance for metadata file
+#15 DONE 0.0s
+
+#16 [r1] resolving provenance for metadata file
+#16 DONE 0.1s
+
+#17 [r2] resolving provenance for metadata file
+#17 DONE 0.0s
+ Image lab-r1 Built 
+ Image lab-r2 Built 
+ Image lab-c1 Built 
+ Image lab-c2 Built 
+ Container lab-r2-1 Starting 
+ Container lab-c1-1 Starting 
+ Container lab-c2-1 Starting 
+ Container lab-r1-1 Starting 
+ Container lab-c1-1 Started 
+ Container lab-c2-1 Started 
+ Container lab-r2-1 Started 
+ Container lab-r1-1 Started 

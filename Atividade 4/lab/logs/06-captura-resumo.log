@@ -1,0 +1,118 @@
+reading from file /logs/icmp-capture.pcap, link-type LINUX_SLL2 (Linux cooked v2), snapshot length 262144
+Warning: interface names might be incorrect
+17:20:07.941800 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 1, length 64
+17:20:07.941831 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 1, length 64
+17:20:07.941896 eth1  In  IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 1, length 64
+17:20:07.941899 eth0  Out IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 1, length 64
+17:20:08.968995 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 2, length 64
+17:20:08.969007 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 2, length 64
+17:20:08.969038 eth1  In  IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 2, length 64
+17:20:08.969040 eth0  Out IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 2, length 64
+17:20:09.992980 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 3, length 64
+17:20:09.992991 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 3, length 64
+17:20:09.993036 eth1  In  IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 3, length 64
+17:20:09.993038 eth0  Out IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 3, length 64
+17:20:11.016976 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 4, length 64
+17:20:11.016990 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 4, length 64
+17:20:11.017025 eth1  In  IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 4, length 64
+17:20:11.017027 eth0  Out IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 4, length 64
+17:20:11.886669 eth0  Out IP6 fe80::30b5:c3ff:fedb:304d > ff02::1: ICMP6, router advertisement, length 56
+17:20:11.886703 eth0  M   IP6 fe80::30b5:c3ff:fedb:304d > ff02::1: ICMP6, router advertisement, length 56
+17:20:12.045011 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 5, length 64
+17:20:12.045029 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28120, seq 5, length 64
+17:20:12.045072 eth1  In  IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 5, length 64
+17:20:12.045075 eth0  Out IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28120, seq 5, length 64
+17:20:12.675337 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 1, length 64
+17:20:12.675354 eth1  Out IP6 fe80::9c51:42ff:fe64:d01e > ff02::1:ff00:2: ICMP6, neighbor solicitation, who has fd00:1234:5678:ffff::2, length 32
+17:20:12.675386 eth1  M   IP6 fe80::9c51:42ff:fe64:d01e > ff02::1:ff00:2: ICMP6, neighbor solicitation, who has fd00:1234:5678:ffff::2, length 32
+17:20:12.675418 eth1  In  IP6 fd00:1234:5678:ffff::2 > fe80::9c51:42ff:fe64:d01e: ICMP6, neighbor advertisement, tgt is fd00:1234:5678:ffff::2, length 32
+17:20:12.675439 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 1, length 64
+17:20:12.675541 eth1  M   IP6 fe80::a059:8eff:fe11:1a4c > ff02::1:ff00:1: ICMP6, neighbor solicitation, who has fd00:1234:5678:ffff::1, length 32
+17:20:12.675544 eth1  Out IP6 fd00:1234:5678:ffff::1 > fe80::a059:8eff:fe11:1a4c: ICMP6, neighbor advertisement, tgt is fd00:1234:5678:ffff::1, length 32
+17:20:12.675550 eth1  In  IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 1, length 64
+17:20:12.675553 eth0  Out IP6 fe80::30b5:c3ff:fedb:304d > ff02::1:ffb1:c122: ICMP6, neighbor solicitation, who has fd00:1234:5678:1:bc33:9cff:feb1:c122, length 32
+17:20:12.675560 eth0  M   IP6 fe80::30b5:c3ff:fedb:304d > ff02::1:ffb1:c122: ICMP6, neighbor solicitation, who has fd00:1234:5678:1:bc33:9cff:feb1:c122, length 32
+17:20:12.675567 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fe80::30b5:c3ff:fedb:304d: ICMP6, neighbor advertisement, tgt is fd00:1234:5678:1:bc33:9cff:feb1:c122, length 32
+17:20:12.675568 eth0  Out IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 1, length 64
+17:20:13.705109 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 2, length 64
+17:20:13.705119 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 2, length 64
+17:20:13.705149 eth1  In  IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 2, length 64
+17:20:13.705151 eth0  Out IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 2, length 64
+17:20:14.729010 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 3, length 64
+17:20:14.729019 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 3, length 64
+17:20:14.729045 eth1  In  IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 3, length 64
+17:20:14.729046 eth0  Out IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 3, length 64
+17:20:15.752963 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 4, length 64
+17:20:15.752972 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 4, length 64
+17:20:15.752997 eth1  In  IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 4, length 64
+17:20:15.752999 eth0  Out IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 4, length 64
+17:20:16.777015 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 5, length 64
+17:20:16.777025 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28121, seq 5, length 64
+17:20:16.777051 eth1  In  IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 5, length 64
+17:20:16.777053 eth0  Out IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28121, seq 5, length 64
+17:20:17.225396 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28122, seq 1, length 64
+17:20:17.225432 eth0  Out IP 192.0.2.1 > 192.0.2.11: ICMP time exceeded in-transit, length 92
+17:20:17.768950 eth1  Out IP6 fe80::9c51:42ff:fe64:d01e > fe80::a059:8eff:fe11:1a4c: ICMP6, neighbor solicitation, who has fe80::a059:8eff:fe11:1a4c, length 32
+17:20:17.769015 eth1  In  IP6 fe80::a059:8eff:fe11:1a4c > fe80::9c51:42ff:fe64:d01e: ICMP6, neighbor solicitation, who has fe80::9c51:42ff:fe64:d01e, length 32
+17:20:17.769035 eth1  Out IP6 fe80::9c51:42ff:fe64:d01e > fe80::a059:8eff:fe11:1a4c: ICMP6, neighbor advertisement, tgt is fe80::9c51:42ff:fe64:d01e, length 24
+17:20:17.769019 eth0  In  IP6 fe80::bc33:9cff:feb1:c122 > fe80::30b5:c3ff:fedb:304d: ICMP6, neighbor solicitation, who has fe80::30b5:c3ff:fedb:304d, length 32
+17:20:17.769038 eth0  Out IP6 fe80::30b5:c3ff:fedb:304d > fe80::bc33:9cff:feb1:c122: ICMP6, neighbor advertisement, tgt is fe80::30b5:c3ff:fedb:304d, length 24
+17:20:17.769040 eth1  In  IP6 fe80::a059:8eff:fe11:1a4c > fe80::9c51:42ff:fe64:d01e: ICMP6, neighbor advertisement, tgt is fe80::a059:8eff:fe11:1a4c, length 24
+17:20:18.249086 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28122, seq 2, length 64
+17:20:18.249123 eth0  Out IP 192.0.2.1 > 192.0.2.11: ICMP time exceeded in-transit, length 92
+17:20:19.273629 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28122, seq 3, length 64
+17:20:19.273665 eth0  Out IP 192.0.2.1 > 192.0.2.11: ICMP time exceeded in-transit, length 92
+17:20:19.849313 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28123, seq 1, length 64
+17:20:19.849324 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28123, seq 1, length 64
+17:20:19.849348 eth1  In  IP 198.51.100.2 > 192.0.2.11: ICMP time exceeded in-transit, length 92
+17:20:19.849350 eth0  Out IP 198.51.100.2 > 192.0.2.11: ICMP time exceeded in-transit, length 92
+17:20:20.871022 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28123, seq 2, length 64
+17:20:20.871040 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28123, seq 2, length 64
+17:20:20.871078 eth1  In  IP 198.51.100.2 > 192.0.2.11: ICMP time exceeded in-transit, length 92
+17:20:20.871080 eth0  Out IP 198.51.100.2 > 192.0.2.11: ICMP time exceeded in-transit, length 92
+17:20:21.894973 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28123, seq 3, length 64
+17:20:21.894982 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28123, seq 3, length 64
+17:20:21.895005 eth1  In  IP 198.51.100.2 > 192.0.2.11: ICMP time exceeded in-transit, length 92
+17:20:21.895007 eth0  Out IP 198.51.100.2 > 192.0.2.11: ICMP time exceeded in-transit, length 92
+17:20:22.225966 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28124, seq 1, length 64
+17:20:22.225975 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28124, seq 1, length 64
+17:20:22.226003 eth1  In  IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28124, seq 1, length 64
+17:20:22.226005 eth0  Out IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28124, seq 1, length 64
+17:20:22.886983 eth0  Out IP6 fe80::30b5:c3ff:fedb:304d > fe80::bc33:9cff:feb1:c122: ICMP6, neighbor solicitation, who has fe80::bc33:9cff:feb1:c122, length 32
+17:20:22.887223 eth0  In  IP6 fe80::bc33:9cff:feb1:c122 > fe80::30b5:c3ff:fedb:304d: ICMP6, neighbor advertisement, tgt is fe80::bc33:9cff:feb1:c122, length 24
+17:20:23.239045 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28124, seq 2, length 64
+17:20:23.239054 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28124, seq 2, length 64
+17:20:23.239078 eth1  In  IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28124, seq 2, length 64
+17:20:23.239080 eth0  Out IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28124, seq 2, length 64
+17:20:24.263057 eth0  In  IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28124, seq 3, length 64
+17:20:24.263078 eth1  Out IP 192.0.2.11 > 203.0.113.12: ICMP echo request, id 28124, seq 3, length 64
+17:20:24.263122 eth1  In  IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28124, seq 3, length 64
+17:20:24.263124 eth0  Out IP 203.0.113.12 > 192.0.2.11: ICMP echo reply, id 28124, seq 3, length 64
+17:20:24.563832 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28125, seq 1, length 64
+17:20:24.563848 eth0  Out IP6 fd00:1234:5678:1::1 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, time exceeded in-transit for fd00:1234:5678:2:4c06:64ff:fe20:bc67, length 112
+17:20:25.575030 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28125, seq 2, length 64
+17:20:25.575048 eth0  Out IP6 fd00:1234:5678:1::1 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, time exceeded in-transit for fd00:1234:5678:2:4c06:64ff:fe20:bc67, length 112
+17:20:26.599057 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28125, seq 3, length 64
+17:20:26.599079 eth0  Out IP6 fd00:1234:5678:1::1 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, time exceeded in-transit for fd00:1234:5678:2:4c06:64ff:fe20:bc67, length 112
+17:20:26.920918 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28126, seq 1, length 64
+17:20:26.920943 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28126, seq 1, length 64
+17:20:26.920982 eth1  In  IP6 fd00:1234:5678:ffff::2 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, time exceeded in-transit for fd00:1234:5678:2:4c06:64ff:fe20:bc67, length 112
+17:20:26.920984 eth0  Out IP6 fd00:1234:5678:ffff::2 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, time exceeded in-transit for fd00:1234:5678:2:4c06:64ff:fe20:bc67, length 112
+17:20:27.901106 eth0  Out IP6 fe80::30b5:c3ff:fedb:304d > ff02::1: ICMP6, router advertisement, length 56
+17:20:27.901130 eth0  M   IP6 fe80::30b5:c3ff:fedb:304d > ff02::1: ICMP6, router advertisement, length 56
+17:20:27.942931 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28126, seq 2, length 64
+17:20:27.942940 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28126, seq 2, length 64
+17:20:27.942964 eth1  In  IP6 fd00:1234:5678:ffff::2 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, time exceeded in-transit for fd00:1234:5678:2:4c06:64ff:fe20:bc67, length 112
+17:20:27.942966 eth0  Out IP6 fd00:1234:5678:ffff::2 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, time exceeded in-transit for fd00:1234:5678:2:4c06:64ff:fe20:bc67, length 112
+17:20:28.966985 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28126, seq 3, length 64
+17:20:28.966993 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28126, seq 3, length 64
+17:20:28.967015 eth1  In  IP6 fd00:1234:5678:ffff::2 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, time exceeded in-transit for fd00:1234:5678:2:4c06:64ff:fe20:bc67, length 112
+17:20:28.967016 eth0  Out IP6 fd00:1234:5678:ffff::2 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, time exceeded in-transit for fd00:1234:5678:2:4c06:64ff:fe20:bc67, length 112
+17:20:29.405276 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28127, seq 1, length 64
+17:20:29.405289 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28127, seq 1, length 64
+17:20:29.405324 eth1  In  IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28127, seq 1, length 64
+17:20:29.405326 eth0  Out IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28127, seq 1, length 64
+17:20:30.407020 eth0  In  IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28127, seq 2, length 64
+17:20:30.407034 eth1  Out IP6 fd00:1234:5678:1:bc33:9cff:feb1:c122 > fd00:1234:5678:2:4c06:64ff:fe20:bc67: ICMP6, echo request, id 28127, seq 2, length 64
+17:20:30.407064 eth1  In  IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28127, seq 2, length 64
+17:20:30.407066 eth0  Out IP6 fd00:1234:5678:2:4c06:64ff:fe20:bc67 > fd00:1234:5678:1:bc33:9cff:feb1:c122: ICMP6, echo reply, id 28127, seq 2, length 64

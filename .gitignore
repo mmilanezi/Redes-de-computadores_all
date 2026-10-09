@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.pyc
+
+# Office / Windows
+~$*
+Thumbs.db
+desktop.ini
+
+# Captura de 69 MB do cenário B (tráfego real da internet): grande demais
+# e pode conter tráfego pessoal. Remova esta linha se quiser versioná-la.
+Atividade 4/lab/logs/cenario-b-internet.pcapng

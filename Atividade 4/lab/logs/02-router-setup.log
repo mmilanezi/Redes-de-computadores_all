@@ -1,0 +1,13 @@
+--- r1 ---
+Papel: r1 | iface cliente: eth0 | iface transito: eth1
+radvd iniciado (pid 58) anunciando fd00:1234:5678:1::/64 em eth0
+Forwarding IPv4 (net.ipv4.ip_forward): 1
+Forwarding IPv6 (net.ipv6.conf.all.forwarding): 1
+Rota estatica adicionada: 203.0.113.0/24 via 198.51.100.2
+
+--- r2 ---
+Papel: r2 | iface cliente: eth0 | iface transito: eth1
+radvd iniciado (pid 59) anunciando fd00:1234:5678:2::/64 em eth0
+Forwarding IPv4 (net.ipv4.ip_forward): 1
+Forwarding IPv6 (net.ipv6.conf.all.forwarding): 1
+Rota estatica adicionada: 192.0.2.0/24 via 198.51.100.1

@@ -1,0 +1,59 @@
+=== IPv4: TTL=1 (deve expirar em r1) ===
+PING 203.0.113.12 (203.0.113.12) 56(84) bytes of data.
+From 192.0.2.1 icmp_seq=1 Time to live exceeded
+From 192.0.2.1 icmp_seq=2 Time to live exceeded
+From 192.0.2.1 icmp_seq=3 Time to live exceeded
+
+--- 203.0.113.12 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2048ms
+
+
+=== IPv4: TTL=2 (deve expirar em r2) ===
+PING 203.0.113.12 (203.0.113.12) 56(84) bytes of data.
+From 198.51.100.2 icmp_seq=1 Time to live exceeded
+From 198.51.100.2 icmp_seq=2 Time to live exceeded
+From 198.51.100.2 icmp_seq=3 Time to live exceeded
+
+--- 203.0.113.12 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2046ms
+
+
+=== IPv4: TTL=3 (deve chegar em c2) ===
+PING 203.0.113.12 (203.0.113.12) 56(84) bytes of data.
+64 bytes from 203.0.113.12: icmp_seq=1 ttl=62 time=0.084 ms
+64 bytes from 203.0.113.12: icmp_seq=2 ttl=62 time=0.070 ms
+64 bytes from 203.0.113.12: icmp_seq=3 ttl=62 time=0.170 ms
+
+--- 203.0.113.12 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2037ms
+rtt min/avg/max/mdev = 0.070/0.108/0.170/0.044 ms
+
+=== IPv6: Hop Limit=1 (deve expirar em r1) ===
+PING fd00:1234:5678:2:4c06:64ff:fe20:bc67 (fd00:1234:5678:2:4c06:64ff:fe20:bc67) 56 data bytes
+From fd00:1234:5678:1::1 icmp_seq=1 Time exceeded: Hop limit
+From fd00:1234:5678:1::1 icmp_seq=2 Time exceeded: Hop limit
+From fd00:1234:5678:1::1 icmp_seq=3 Time exceeded: Hop limit
+
+--- fd00:1234:5678:2:4c06:64ff:fe20:bc67 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2035ms
+
+
+=== IPv6: Hop Limit=2 (deve expirar em r2) ===
+PING fd00:1234:5678:2:4c06:64ff:fe20:bc67 (fd00:1234:5678:2:4c06:64ff:fe20:bc67) 56 data bytes
+From fd00:1234:5678:ffff::2 icmp_seq=1 Time exceeded: Hop limit
+From fd00:1234:5678:ffff::2 icmp_seq=2 Time exceeded: Hop limit
+From fd00:1234:5678:ffff::2 icmp_seq=3 Time exceeded: Hop limit
+
+--- fd00:1234:5678:2:4c06:64ff:fe20:bc67 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2046ms
+
+
+=== IPv6: Hop Limit=3 (deve chegar em c2) ===
+PING fd00:1234:5678:2:4c06:64ff:fe20:bc67 (fd00:1234:5678:2:4c06:64ff:fe20:bc67) 56 data bytes
+64 bytes from fd00:1234:5678:2:4c06:64ff:fe20:bc67: icmp_seq=1 ttl=62 time=0.108 ms
+64 bytes from fd00:1234:5678:2:4c06:64ff:fe20:bc67: icmp_seq=2 ttl=62 time=0.101 ms
+64 bytes from fd00:1234:5678:2:4c06:64ff:fe20:bc67: icmp_seq=3 ttl=62 time=0.224 ms
+
+--- fd00:1234:5678:2:4c06:64ff:fe20:bc67 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2026ms
+rtt min/avg/max/mdev = 0.101/0.144/0.224/0.056 ms

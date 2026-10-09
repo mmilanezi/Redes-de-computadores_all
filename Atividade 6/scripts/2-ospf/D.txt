@@ -1,0 +1,8 @@
+enable
+configure terminal
+no router rip
+router ospf 1
+ router-id 4.4.4.4
+ network 192.168.8.0 0.0.0.255 area 0
+ network 192.168.9.0 0.0.0.255 area 0
+end

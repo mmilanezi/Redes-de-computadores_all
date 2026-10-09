@@ -1,0 +1,32 @@
+services:
+  r1:
+    build: .
+    hostname: r1
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    sysctls:
+      net.ipv6.conf.all.forwarding: 1
+      net.ipv6.conf.all.accept_ra: 2
+    networks:
+      - lab-net
+
+  c1:
+    build: .
+    hostname: c1
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    sysctls:
+      net.ipv6.conf.all.accept_ra: 2
+    networks:
+      - lab-net
+
+networks:
+  lab-net:
+    driver: bridge
+    enable_ipv6: true
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
+        - subnet: fd00:dead:beef::/64

@@ -1,0 +1,23 @@
+--- ping IPv4 c1 -> c2 (192.0.2.11 -> 203.0.113.12) ---
+PING 203.0.113.12 (203.0.113.12) 56(84) bytes of data.
+64 bytes from 203.0.113.12: icmp_seq=1 ttl=62 time=0.215 ms
+64 bytes from 203.0.113.12: icmp_seq=2 ttl=62 time=0.091 ms
+64 bytes from 203.0.113.12: icmp_seq=3 ttl=62 time=0.103 ms
+64 bytes from 203.0.113.12: icmp_seq=4 ttl=62 time=0.114 ms
+64 bytes from 203.0.113.12: icmp_seq=5 ttl=62 time=0.144 ms
+
+--- 203.0.113.12 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4103ms
+rtt min/avg/max/mdev = 0.091/0.133/0.215/0.044 ms
+
+--- ping IPv6 c1 -> c2 (fd00:1234:5678:2:4c06:64ff:fe20:bc67) ---
+PING fd00:1234:5678:2:4c06:64ff:fe20:bc67 (fd00:1234:5678:2:4c06:64ff:fe20:bc67) 56 data bytes
+64 bytes from fd00:1234:5678:2:4c06:64ff:fe20:bc67: icmp_seq=1 ttl=62 time=0.280 ms
+64 bytes from fd00:1234:5678:2:4c06:64ff:fe20:bc67: icmp_seq=2 ttl=62 time=0.090 ms
+64 bytes from fd00:1234:5678:2:4c06:64ff:fe20:bc67: icmp_seq=3 ttl=62 time=0.077 ms
+64 bytes from fd00:1234:5678:2:4c06:64ff:fe20:bc67: icmp_seq=4 ttl=62 time=0.077 ms
+64 bytes from fd00:1234:5678:2:4c06:64ff:fe20:bc67: icmp_seq=5 ttl=62 time=0.087 ms
+
+--- fd00:1234:5678:2:4c06:64ff:fe20:bc67 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4102ms
+rtt min/avg/max/mdev = 0.077/0.122/0.280/0.079 ms

@@ -1,0 +1,32 @@
+--- docker compose ps ---
+NAME       IMAGE     COMMAND            SERVICE   CREATED         STATUS                  PORTS
+lab-c1-1   lab-c1    "sleep infinity"   c1        2 seconds ago   Up Less than a second   
+lab-c2-1   lab-c2    "sleep infinity"   c2        2 seconds ago   Up Less than a second   
+lab-r1-1   lab-r1    "sleep infinity"   r1        2 seconds ago   Up Less than a second   
+
+--- r1: ip -6 addr show dev eth0 ---
+2: eth0@if15: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default  link-netnsid 0
+    inet6 fd00:dead:beef::4/64 scope global nodad 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::9875:e2ff:fee2:bd92/64 scope link tentative 
+       valid_lft forever preferred_lft forever
+--- r1: MTU ---
+mtu 1500
+
+--- c1: ip -6 addr show dev eth0 ---
+2: eth0@if13: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default  link-netnsid 0
+    inet6 fd00:dead:beef::2/64 scope global nodad 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::88db:a2ff:fe8d:eafd/64 scope link 
+       valid_lft forever preferred_lft forever
+--- c1: MTU ---
+mtu 1500
+
+--- c2: ip -6 addr show dev eth0 ---
+2: eth0@if14: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default  link-netnsid 0
+    inet6 fd00:dead:beef::3/64 scope global nodad 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::3087:e9ff:fef0:ff4b/64 scope link 
+       valid_lft forever preferred_lft forever
+--- c2: MTU ---
+mtu 1500

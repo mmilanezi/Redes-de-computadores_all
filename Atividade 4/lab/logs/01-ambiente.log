@@ -1,0 +1,60 @@
+--- docker compose ps ---
+NAME       IMAGE                                                                     COMMAND            SERVICE   CREATED        STATUS                  PORTS
+lab-c1-1   sha256:018f0f1e1fc2e1a77b8fb037da2ffc22860a3acea57ce973327cbd3cd4614da5   "sleep infinity"   c1        19 hours ago   Up Less than a second   
+lab-c2-1   sha256:e4035574576d77904ad9f472fcb12f10fa554c9b186b9b87dfd16552d84b0ac1   "sleep infinity"   c2        19 hours ago   Up Less than a second   
+lab-r1-1   sha256:c5c1aab2c4b3927b0b09b338977d166a57b70ab35cc4bcb334a3fa310bb0ba00   "sleep infinity"   r1        19 hours ago   Up Less than a second   
+lab-r2-1   sha256:2fcfc08bb576c4d4b26e75c65f98bc9a3fbcb88ae20c5920c424959f4eb9a05a   "sleep infinity"   r2        19 hours ago   Up Less than a second   
+
+--- c1: enderecos IPv4 ---
+2: eth0    inet 192.0.2.11/24 brd 192.0.2.255 scope global eth0\       valid_lft forever preferred_lft forever
+--- c1: enderecos IPv6 ---
+2: eth0    inet6 fd00:dead:beef:1::2/64 scope global nodad \       valid_lft forever preferred_lft forever
+2: eth0    inet6 fe80::bc33:9cff:feb1:c122/64 scope link tentative \       valid_lft forever preferred_lft forever
+--- c1: MTU ---
+mtu 65536
+--- c1: rota padrao IPv4 ---
+default via 192.0.2.254 dev eth0 
+--- c1: rota padrao IPv6 ---
+default via fd00:dead:beef:1::1 dev eth0 metric 1024 pref medium
+
+--- r1: enderecos IPv4 ---
+2: eth0    inet 192.0.2.1/24 brd 192.0.2.255 scope global eth0\       valid_lft forever preferred_lft forever
+3: eth1    inet 198.51.100.1/24 brd 198.51.100.255 scope global eth1\       valid_lft forever preferred_lft forever
+--- r1: enderecos IPv6 ---
+2: eth0    inet6 fd00:dead:beef:1::3/64 scope global nodad \       valid_lft forever preferred_lft forever
+2: eth0    inet6 fe80::30b5:c3ff:fedb:304d/64 scope link \       valid_lft forever preferred_lft forever
+3: eth1    inet6 fd00:dead:beef:ffff::3/64 scope global nodad \       valid_lft forever preferred_lft forever
+3: eth1    inet6 fe80::9c51:42ff:fe64:d01e/64 scope link \       valid_lft forever preferred_lft forever
+--- r1: MTU ---
+mtu 65536
+--- r1: rota padrao IPv4 ---
+default via 192.0.2.254 dev eth0 
+--- r1: rota padrao IPv6 ---
+default via fd00:dead:beef:1::1 dev eth0 metric 1024 pref medium
+
+--- r2: enderecos IPv4 ---
+2: eth0    inet 203.0.113.1/24 brd 203.0.113.255 scope global eth0\       valid_lft forever preferred_lft forever
+3: eth1    inet 198.51.100.2/24 brd 198.51.100.255 scope global eth1\       valid_lft forever preferred_lft forever
+--- r2: enderecos IPv6 ---
+2: eth0    inet6 fd00:dead:beef:2::3/64 scope global nodad \       valid_lft forever preferred_lft forever
+2: eth0    inet6 fe80::804b:2cff:fe0b:2297/64 scope link \       valid_lft forever preferred_lft forever
+3: eth1    inet6 fd00:dead:beef:ffff::2/64 scope global nodad \       valid_lft forever preferred_lft forever
+3: eth1    inet6 fe80::a059:8eff:fe11:1a4c/64 scope link \       valid_lft forever preferred_lft forever
+--- r2: MTU ---
+mtu 65536
+--- r2: rota padrao IPv4 ---
+default via 203.0.113.254 dev eth0 
+--- r2: rota padrao IPv6 ---
+default via fd00:dead:beef:2::1 dev eth0 metric 1024 pref medium
+
+--- c2: enderecos IPv4 ---
+2: eth0    inet 203.0.113.12/24 brd 203.0.113.255 scope global eth0\       valid_lft forever preferred_lft forever
+--- c2: enderecos IPv6 ---
+2: eth0    inet6 fd00:dead:beef:2::2/64 scope global nodad \       valid_lft forever preferred_lft forever
+2: eth0    inet6 fe80::4c06:64ff:fe20:bc67/64 scope link \       valid_lft forever preferred_lft forever
+--- c2: MTU ---
+mtu 65536
+--- c2: rota padrao IPv4 ---
+default via 203.0.113.254 dev eth0 
+--- c2: rota padrao IPv6 ---
+default via fd00:dead:beef:2::1 dev eth0 metric 1024 pref medium

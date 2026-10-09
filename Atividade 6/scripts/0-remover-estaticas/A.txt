@@ -1,0 +1,9 @@
+enable
+configure terminal
+no ip domain-lookup
+no ip route 192.168.2.0 255.255.255.0 192.168.7.2
+no ip route 192.168.3.0 255.255.255.0 192.168.9.3
+no ip route 192.100.0.0 255.255.255.0 192.168.7.2
+no ip route 192.168.8.0 255.255.255.0 192.168.7.3
+end
+show ip route

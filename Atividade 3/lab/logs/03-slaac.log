@@ -1,0 +1,12 @@
+--- c1: enderecos globais (scope global) ---
+2: eth0@if13: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default  link-netnsid 0
+    inet6 fd00:1234:5678:0:88db:a2ff:fe8d:eafd/64 scope global dynamic mngtmpaddr 
+       valid_lft 86397sec preferred_lft 14397sec
+    inet6 fd00:dead:beef::2/64 scope global nodad 
+       valid_lft forever preferred_lft forever
+--- c2: enderecos globais (scope global) ---
+2: eth0@if14: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default  link-netnsid 0
+    inet6 fd00:1234:5678:0:3087:e9ff:fef0:ff4b/64 scope global dynamic mngtmpaddr 
+       valid_lft 86397sec preferred_lft 14397sec
+    inet6 fd00:dead:beef::3/64 scope global nodad 
+       valid_lft forever preferred_lft forever

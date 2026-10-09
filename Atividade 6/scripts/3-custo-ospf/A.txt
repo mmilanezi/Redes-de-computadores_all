@@ -1,0 +1,6 @@
+enable
+configure terminal
+interface GigabitEthernet0/2
+ ip ospf cost 100
+end
+show ip ospf interface GigabitEthernet0/2

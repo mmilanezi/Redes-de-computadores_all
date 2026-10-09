@@ -1,0 +1,24 @@
+reading from file /logs/icmpv6-capture.pcap, link-type EN10MB (Ethernet), snapshot length 262144
+14:02:18.566620 IP6 fe80::9875:e2ff:fee2:bd92 > ff02::1: ICMP6, router advertisement, length 56
+14:02:18.566645 IP6 fe80::9875:e2ff:fee2:bd92 > ff02::1: ICMP6, router advertisement, length 56
+14:02:19.850447 IP6 fd00:1234:5678:0:88db:a2ff:fe8d:eafd > ff02::1:ff00:1: ICMP6, neighbor solicitation, who has fd00:1234:5678::1, length 32
+14:02:19.850459 IP6 fd00:1234:5678::1 > fd00:1234:5678:0:88db:a2ff:fe8d:eafd: ICMP6, neighbor advertisement, tgt is fd00:1234:5678::1, length 32
+14:02:19.850534 IP6 fd00:1234:5678:0:88db:a2ff:fe8d:eafd > fd00:1234:5678::1: ICMP6, echo request, id 55209, seq 1, length 64
+14:02:19.850615 IP6 fd00:1234:5678::1 > fd00:1234:5678:0:88db:a2ff:fe8d:eafd: ICMP6, echo reply, id 55209, seq 1, length 64
+14:02:20.864230 IP6 fd00:1234:5678:0:88db:a2ff:fe8d:eafd > fd00:1234:5678::1: ICMP6, echo request, id 55209, seq 2, length 64
+14:02:20.864243 IP6 fd00:1234:5678::1 > fd00:1234:5678:0:88db:a2ff:fe8d:eafd: ICMP6, echo reply, id 55209, seq 2, length 64
+14:02:21.888329 IP6 fd00:1234:5678:0:88db:a2ff:fe8d:eafd > fd00:1234:5678::1: ICMP6, echo request, id 55209, seq 3, length 64
+14:02:21.888341 IP6 fd00:1234:5678::1 > fd00:1234:5678:0:88db:a2ff:fe8d:eafd: ICMP6, echo reply, id 55209, seq 3, length 64
+14:02:22.912305 IP6 fd00:1234:5678:0:88db:a2ff:fe8d:eafd > fd00:1234:5678::1: ICMP6, echo request, id 55209, seq 4, length 64
+14:02:22.912327 IP6 fd00:1234:5678::1 > fd00:1234:5678:0:88db:a2ff:fe8d:eafd: ICMP6, echo reply, id 55209, seq 4, length 64
+14:02:23.936278 IP6 fd00:1234:5678:0:88db:a2ff:fe8d:eafd > fd00:1234:5678::1: ICMP6, echo request, id 55209, seq 5, length 64
+14:02:23.936299 IP6 fd00:1234:5678::1 > fd00:1234:5678:0:88db:a2ff:fe8d:eafd: ICMP6, echo reply, id 55209, seq 5, length 64
+14:02:24.604976 IP6 fd00:1234:5678:0:88db:a2ff:fe8d:eafd > ff02::1:fff0:ff4b: ICMP6, neighbor solicitation, who has fd00:1234:5678:0:3087:e9ff:fef0:ff4b, length 32
+14:02:24.990759 IP6 fe80::9875:e2ff:fee2:bd92 > fd00:1234:5678:0:88db:a2ff:fe8d:eafd: ICMP6, neighbor solicitation, who has fd00:1234:5678:0:88db:a2ff:fe8d:eafd, length 32
+14:02:24.990876 IP6 fd00:1234:5678:0:88db:a2ff:fe8d:eafd > fe80::9875:e2ff:fee2:bd92: ICMP6, neighbor advertisement, tgt is fd00:1234:5678:0:88db:a2ff:fe8d:eafd, length 24
+14:02:30.110781 IP6 fe80::88db:a2ff:fe8d:eafd > fe80::9875:e2ff:fee2:bd92: ICMP6, neighbor solicitation, who has fe80::9875:e2ff:fee2:bd92, length 32
+14:02:30.110792 IP6 fe80::9875:e2ff:fee2:bd92 > fe80::88db:a2ff:fe8d:eafd: ICMP6, neighbor advertisement, tgt is fe80::9875:e2ff:fee2:bd92, length 24
+14:02:34.581412 IP6 fe80::9875:e2ff:fee2:bd92 > ff02::1: ICMP6, router advertisement, length 56
+14:02:34.581430 IP6 fe80::9875:e2ff:fee2:bd92 > ff02::1: ICMP6, router advertisement, length 56
+14:02:35.230678 IP6 fe80::9875:e2ff:fee2:bd92 > fe80::88db:a2ff:fe8d:eafd: ICMP6, neighbor solicitation, who has fe80::88db:a2ff:fe8d:eafd, length 32
+14:02:35.230728 IP6 fe80::88db:a2ff:fe8d:eafd > fe80::9875:e2ff:fee2:bd92: ICMP6, neighbor advertisement, tgt is fe80::88db:a2ff:fe8d:eafd, length 24

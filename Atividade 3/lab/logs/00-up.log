@@ -1,0 +1,91 @@
+ Image lab-c1 Building 
+ Image lab-c2 Building 
+ Image lab-r1 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.60kB 0.0s done
+#1 DONE 0.0s
+
+#2 [r1 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 368B 0.0s done
+#2 DONE 0.0s
+
+#3 [c2 internal] load metadata for docker.io/library/ubuntu:24.04
+#3 DONE 1.4s
+
+#4 [c1 internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [c1 1/5] FROM docker.io/library/ubuntu:24.04@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517
+#5 resolve docker.io/library/ubuntu:24.04@sha256:33ceb71981b602c1a7443a53469e4dba065f7503eab3078a2d7a57a2ab987517 0.0s done
+#5 DONE 0.0s
+
+#6 [c1 internal] load build context
+#6 transferring context: 102B done
+#6 DONE 0.0s
+
+#7 [c1 2/5] RUN apt-get update && apt-get install -y --no-install-recommends     iproute2     iputils-ping     radvd     tcpdump     iperf3     procps     grep     && rm -rf /var/lib/apt/lists/*
+#7 CACHED
+
+#8 [c1 4/5] COPY scripts/ /scripts/
+#8 CACHED
+
+#9 [c1 3/5] COPY radvd.conf /etc/radvd.conf
+#9 CACHED
+
+#10 [c1 5/5] RUN chmod +x /scripts/*.sh
+#10 CACHED
+
+#11 [r1] exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:482e7a4cadc20025a8388f16af8594c0e2420d46ed004f820e5db0343043e317 done
+#11 exporting config sha256:5fbdef3c0ab4b82070ef2ad1eaaf0b4f7e84174329bba250c9ed3193dbacf2a9 done
+#11 exporting attestation manifest sha256:37a1a98f4c5c1a7959f491bed3816683c0512a6a8ec1ade62a577985105abbba 0.1s done
+#11 exporting manifest list sha256:6c6df1f65ce758388f547043ac333b1041a36d5905a5276c6fab1490c83b171c 0.0s done
+#11 naming to docker.io/library/lab-r1:latest done
+#11 unpacking to docker.io/library/lab-r1:latest 0.0s done
+#11 DONE 0.2s
+
+#12 [c1] exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:f5881679a76068699727e3a53d010e551fe585a7a6b8c8414b1f642222fe7c63 done
+#12 exporting config sha256:f8b7ef64a2bcf0dc54751eb24b95cf65592066ec1db3ea75677d74b2c4bff4cd done
+#12 exporting attestation manifest sha256:214ffaa0a89508a445512a20e958e02f99f91a53ccb0860e4c860da755bc1dcf 0.1s done
+#12 exporting manifest list sha256:90a4ef03a793fafdf3b7622fc571405070454e542746280247c2d0496572129b 0.0s done
+#12 naming to docker.io/library/lab-c1:latest 0.0s done
+#12 unpacking to docker.io/library/lab-c1:latest 0.0s done
+#12 DONE 0.2s
+
+#13 [c2] exporting to image
+#13 exporting layers done
+#13 exporting manifest sha256:74ab472a324118e4385aacda7395f98512dfa3095bcedede970ce288cd1946c9 done
+#13 exporting config sha256:e787f26d63646586e7b6471ce61114be251536442c6f207152e50d6f2cc94942 done
+#13 exporting attestation manifest sha256:9b4dcde333ecf75391a7453a53cd9268f89a5777c1405a91bd3e528a6fad9c22 0.1s done
+#13 exporting manifest list sha256:90d2766df34c0da65adef897f4271affe25e0d641e6a33a1700af95884f758fd 0.0s done
+#13 naming to docker.io/library/lab-c2:latest done
+#13 unpacking to docker.io/library/lab-c2:latest 0.0s done
+#13 DONE 0.2s
+
+#14 [r1] resolving provenance for metadata file
+#14 DONE 0.2s
+
+#15 [c1] resolving provenance for metadata file
+#15 DONE 0.2s
+
+#16 [c2] resolving provenance for metadata file
+#16 DONE 0.0s
+ Image lab-c2 Built 
+ Image lab-r1 Built 
+ Image lab-c1 Built 
+ Container lab-c1-1 Recreate 
+ Container lab-r1-1 Recreate 
+ Container lab-c2-1 Recreate 
+ Container lab-c2-1 Recreated 
+ Container lab-c1-1 Recreated 
+ Container lab-r1-1 Recreated 
+ Container lab-c2-1 Starting 
+ Container lab-r1-1 Starting 
+ Container lab-c1-1 Starting 
+ Container lab-c2-1 Started 
+ Container lab-c1-1 Started 
+ Container lab-r1-1 Started 

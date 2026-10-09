@@ -1,0 +1,10 @@
+enable
+configure terminal
+no router ospf 1
+router rip
+ version 2
+ no auto-summary
+ network 192.168.2.0
+ network 192.168.7.0
+ network 192.100.0.0
+end
