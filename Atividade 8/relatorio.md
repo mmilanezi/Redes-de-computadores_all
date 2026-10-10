@@ -214,9 +214,9 @@ Uma posição *i* pertence exatamente aos grupos correspondentes aos bits ligado
 
 No teste realizado, a posição 13 = 01101₂ pertence aos grupos C1, C4 e C8, que foram exatamente os que falharam, e a síndrome deu 13. No teste com P16, a posição 16 = 10000₂ pertence só ao grupo C16, e a síndrome deu 16. Basta inverter o bit da posição indicada para recuperar a palavra original.
 
-Essa localização só funciona para **um** erro. Foi feito um teste extra invertendo as posições 3 e 5 da mesma palavra: a síndrome deu 6, porque 3 XOR 5 = 011 XOR 101 = 110. O programa "corrigiu" a posição 6, que estava certa, e a palavra final ficou com 3 bits errados (posições 3, 5 e 6). Com dois erros, a síndrome aponta para uma terceira posição e a correção piora a palavra. Para pelo menos detectar erros duplos seria necessário um bit de paridade global adicional (esquema SECDED, que formaria um código (32, 26)).
+Essa localização só funciona para **um** erro. Foi feito um teste extra invertendo as posições 3 e 5 da mesma palavra: a síndrome deu 6, porque 3 XOR 5 = 011 XOR 101 = 110. O programa "corrigiu" a posição 6, que estava certa, e a palavra final ficou com 3 bits errados (posições 3, 5 e 6). Com dois erros, a síndrome aponta para uma terceira posição e a correção piora a palavra. A verificação mostra o motivo: as posições 3 (00011) e 5 (00101) pertencem ambas ao grupo do P1, e as duas inversões se anularam nesse grupo, que continuou com total par (C1 passou). Já nos grupos C2 e C4, cada um contendo só uma das posições alteradas, a verificação falhou, formando 00110 = 6. Para pelo menos detectar erros duplos seria necessário um bit de paridade global adicional (esquema SECDED, que formaria um código (32, 26)).
 
-**Evidência:** saída do teste com dois erros (arquivo `saida_erro_duplo.txt`).
+**Evidência:** print de `python hamming.py --verificar 0000001100111000101110001011010` (palavra do Teste 3 com as posições 3 e 5 invertidas) e arquivo `saida_erro_duplo.txt`.
 
 ### Qual é o overhead introduzido pela codificação Hamming (31, 26)?
 
