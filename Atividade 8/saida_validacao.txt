@@ -1,0 +1,9 @@
+$ python hamming.py --codificar "1010"
+Erro: esperados 26 bits, recebidos 4
+
+$ python hamming.py --codificar "1010 1010 1010 1010 1010 1x"
+Erro: a entrada deve conter apenas 0 e 1 (encontrado: x)
+
+$ python hamming.py --codificar "101010101010101010101010101"
+Erro: esperados 26 bits, recebidos 27
+

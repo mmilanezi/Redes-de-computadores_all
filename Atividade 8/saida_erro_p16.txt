@@ -1,0 +1,105 @@
+========================================================================
+PARTES 1 e 2 - Codificação Hamming (31, 26)
+========================================================================
+Mapeamento dos bits de dados nas posições da palavra:
+  D1->3   D2->5   D3->6   D4->7   D5->9   D6->10  D7->11  D8->12  D9->13 
+  D10->14 D11->15 D12->17 D13->18 D14->19 D15->20 D16->21 D17->22 D18->23
+  D19->24 D20->25 D21->26 D22->27 D23->28 D24->29 D25->30 D26->31
+
+Teste 1
+  entrada  (26 bits): 10101010101010101010101010
+  Hamming  (31 bits): 1011010010101011010101010101010
+  agrupado de 4 em 4: 1011 0100 1010 1011 0101 0101 0101 010
+  paridades P1 P2 P4 P8 P16 = 1 0 1 0 1
+            0000000001111111111222222222233
+  posição   1234567890123456789012345678901
+  tipo      PPdPdddPdddddddPddddddddddddddd
+  palavra   1011010010101011010101010101010
+
+Teste 2
+  entrada  (26 bits): 11111111111111111111111111
+  Hamming  (31 bits): 1111111111111111111111111111111
+  agrupado de 4 em 4: 1111 1111 1111 1111 1111 1111 1111 111
+  paridades P1 P2 P4 P8 P16 = 1 1 1 1 1
+            0000000001111111111222222222233
+  posição   1234567890123456789012345678901
+  tipo      PPdPdddPdddddddPddddddddddddddd
+  palavra   1111111111111111111111111111111
+
+Teste 3
+  entrada  (26 bits): 11010011100101110001011010
+  Hamming  (31 bits): 0010101100111000101110001011010
+  agrupado de 4 em 4: 0010 1011 0011 1000 1011 1000 1011 010
+  paridades P1 P2 P4 P8 P16 = 0 0 0 1 0
+            0000000001111111111222222222233
+  posição   1234567890123456789012345678901
+  tipo      PPdPdddPdddddddPddddddddddddddd
+  palavra   0010101100111000101110001011010
+
+Como os 5 bits de paridade foram obtidos no Teste 3:
+  P1  (posição  1, bit 0 do índice) verifica as posições:
+       1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31
+       bits de dados verificados: 3=1 5=1 7=1 9=0 11=1 13=1 15=0 17=1 19=1 21=1 23=0 25=1 27=1 29=0 31=0
+       quantidade de 1s = 10 (par) -> P1 = 0
+  P2  (posição  2, bit 1 do índice) verifica as posições:
+       2 3 6 7 10 11 14 15 18 19 22 23 26 27 30 31
+       bits de dados verificados: 3=1 6=0 7=1 10=0 11=1 14=0 15=0 18=0 19=1 22=0 23=0 26=0 27=1 30=1 31=0
+       quantidade de 1s = 6 (par) -> P2 = 0
+  P4  (posição  4, bit 2 do índice) verifica as posições:
+       4 5 6 7 12 13 14 15 20 21 22 23 28 29 30 31
+       bits de dados verificados: 5=1 6=0 7=1 12=1 13=1 14=0 15=0 20=1 21=1 22=0 23=0 28=1 29=0 30=1 31=0
+       quantidade de 1s = 8 (par) -> P4 = 0
+  P8  (posição  8, bit 3 do índice) verifica as posições:
+       8 9 10 11 12 13 14 15 24 25 26 27 28 29 30 31
+       bits de dados verificados: 9=0 10=0 11=1 12=1 13=1 14=0 15=0 24=0 25=1 26=0 27=1 28=1 29=0 30=1 31=0
+       quantidade de 1s = 7 (ímpar) -> P8 = 1
+  P16 (posição 16, bit 4 do índice) verifica as posições:
+       16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+       bits de dados verificados: 17=1 18=0 19=1 20=1 21=1 22=0 23=0 24=0 25=1 26=0 27=1 28=1 29=0 30=1 31=0
+       quantidade de 1s = 8 (par) -> P16 = 0
+
+========================================================================
+PARTE 3 - Erro de um único bit (palavra do Teste 3)
+========================================================================
+Palavra correta     : 0010101100111000101110001011010
+Bit invertido       : posição 16 (P16), 0 -> 1
+Palavra com erro    : 0010101100111001101110001011010
+
+            0000000001111111111222222222233
+  posição   1234567890123456789012345678901
+  tipo      PPdPdddPdddddddPddddddddddddddd
+  correta   0010101100111000101110001011010
+            0000000001111111111222222222233
+  posição   1234567890123456789012345678901
+  tipo      PPdPdddPdddddddPddddddddddddddd
+  com erro  0010101100111001101110001011010
+                           ^ posição 16 (P16)
+
+Verificação da palavra recebida:
+  C1  = XOR das posições {1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31}
+        quantidade de 1s = 10 -> C1 = 0  [ok]
+  C2  = XOR das posições {2,3,6,7,10,11,14,15,18,19,22,23,26,27,30,31}
+        quantidade de 1s = 6 -> C2 = 0  [ok]
+  C4  = XOR das posições {4,5,6,7,12,13,14,15,20,21,22,23,28,29,30,31}
+        quantidade de 1s = 8 -> C4 = 0  [ok]
+  C8  = XOR das posições {8,9,10,11,12,13,14,15,24,25,26,27,28,29,30,31}
+        quantidade de 1s = 8 -> C8 = 0  [ok]
+  C16 = XOR das posições {16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31}
+        quantidade de 1s = 9 -> C16 = 1  [FALHOU]
+  síndrome (C16 C8 C4 C2 C1) = 10000b = 16
+
+Posição identificada: 16 (P16)
+Palavra corrigida   : 0010101100111000101110001011010
+Igual à original?   : SIM
+Síndrome após correção: 0
+Dados recuperados   : 11010011100101110001011010
+
+========================================================================
+AUTOTESTE - todas as posições de erro possíveis
+========================================================================
+  Teste 1: síndrome da palavra sem erro = 0; erros de 1 bit localizados e corrigidos: 31/31
+  Teste 2: síndrome da palavra sem erro = 0; erros de 1 bit localizados e corrigidos: 31/31
+  Teste 3: síndrome da palavra sem erro = 0; erros de 1 bit localizados e corrigidos: 31/31
+  1000 entradas aleatórias com 1 bit invertido: 1000/1000 corrigidas
+  síndrome == XOR dos índices dos bits 1: 1000/1000
+

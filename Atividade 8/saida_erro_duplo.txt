@@ -1,0 +1,6 @@
+correta  : 0010101100111000101110001011010
+2 erros  : 0000001100111000101110001011010 (posicoes 3 e 5)
+sindrome : 6 00110
+corrigida: 0000011100111000101110001011010
+igual a original? False
+bits diferentes da original: [3, 5, 6]
