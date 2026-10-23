@@ -47,10 +47,10 @@
   cabo. Não dá para distinguir só com a captura deste PC (a placa retiraria uma tag na resposta).
 
 ## Checklist do relatório (PDF único)
-- [ ] Interface e método de captura
-- [ ] ≥ 3 quadros com campos Ethernet visíveis (MAC origem/destino, Type/Length)
-- [ ] Classificação Ethernet II × 802.3 com justificativa + como reconhecer o outro (quadro injetado)
-- [ ] Tamanhos: cabeçalho 14 B, payload 46–1500, preâmbulo 7 + SFD 1, FCS 4, por que não aparecem
-- [ ] VLAN: ausência no tráfego normal + quadro com tag (TPID 0x8100, TCI 0xA00A → PCP 5, DEI 0, VID 10), +4 B
-- [ ] Análise (3 perguntas da seção 5)
-- [ ] Uso de IA (ferramenta, etapas, verificação, exemplo confirmado/corrigido)
+- [x] Interface e método de captura
+- [x] ≥ 3 quadros com campos Ethernet visíveis (MAC origem/destino, Type/Length)
+- [x] Classificação Ethernet II × 802.3 com justificativa + como reconhecer o outro (quadro injetado)
+- [x] Tamanhos: cabeçalho 14 B, payload 46–1500, preâmbulo 7 + SFD 1, FCS 4, por que não aparecem
+- [x] VLAN: ausência no tráfego normal + quadro com tag (TPID 0x8100, TCI 0xA00A → PCP 5, DEI 0, VID 10), +4 B
+- [x] Análise (3 perguntas da seção 5)
+- [x] Uso de IA (ferramenta, etapas, verificação, exemplo confirmado/corrigido)
