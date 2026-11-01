@@ -1,0 +1,105 @@
+==============================================================================
+EXPERIMENTO 1 - Capacidade de Nyquist (canal ideal): C = 2B·log2(N)
+==============================================================================
+Capacidade C em kbit/s:
+
+  N (níveis)                           2         4         8        16
+  m = log2 N (bits/símbolo)            1         2         3         4
+  --------------------------------------------------------------------
+  B = 1 kHz                         2,00      4,00      6,00      8,00
+  B = 5 kHz                        10,00     20,00     30,00     40,00
+  B = 10 kHz                       20,00     40,00     60,00     80,00
+
+Observações calculadas:
+  - B × 10 (1 -> 10 kHz): C × 10,00 para todo N -> C é proporcional a B
+  - B = 1 kHz: cada vez que N dobra (+1 bit/símbolo), C soma 2,00 kbit/s (= 2B)
+  - B = 5 kHz: cada vez que N dobra (+1 bit/símbolo), C soma 10,00 kbit/s (= 2B)
+  - B = 10 kHz: cada vez que N dobra (+1 bit/símbolo), C soma 20,00 kbit/s (= 2B)
+  - N × 8 (2 -> 16 níveis) multiplica C por apenas 4,00 (= log2 16 / log2 2)
+  gráfico salvo em: graficos\exp1_nyquist.png
+
+==============================================================================
+EXPERIMENTO 2 - Capacidade de Shannon: C = B·log2(1 + SNR)
+==============================================================================
+Capacidade C em kbit/s:
+
+  SNR (linear)                       1.000       5.000      10.000      50.000
+  SNR (dB)                           30,00       36,99       40,00       46,99
+  log2(1 + SNR) (bit/s/Hz)           9,967      12,288      13,288      15,610
+  ----------------------------------------------------------------------------
+  B = 1 kHz                           9,97       12,29       13,29       15,61
+  B = 2 kHz                          19,93       24,58       26,58       31,22
+  B = 3 kHz                          29,90       36,86       39,86       46,83
+  B = 4 kHz                          39,87       49,15       53,15       62,44
+  B = 5 kHz                          49,84       61,44       66,44       78,05
+  B = 6 kHz                          59,80       73,73       79,73       93,66
+  B = 7 kHz                          69,77       86,02       93,01      109,27
+  B = 8 kHz                          79,74       98,30      106,30      124,88
+  B = 9 kHz                          89,71      110,59      119,59      140,49
+  B = 10 kHz                         99,67      122,88      132,88      156,10
+
+Maior capacidade: 156,10 kbit/s (156.096,69 bit/s)  (B = 10 kHz, SNR = 50.000)
+Menor capacidade: 9,97 kbit/s (9.967,23 bit/s)  (B = 1 kHz, SNR = 1.000)
+Maior / menor = 15,66
+
+Observações calculadas:
+  - Para cada SNR, C/B é constante: C(10 kHz) / C(1 kHz) = 10,00 -> C cresce linearmente com B
+  - SNR × 5 (1.000 -> 5.000): C × 1,2328 para todo B; a eficiência sobe só 2,3208 bit/s/Hz
+  - SNR × 5 (10.000 -> 50.000): C × 1,1747 para todo B; a eficiência sobe só 2,3218 bit/s/Hz
+  - SNR × 50 (1.000 -> 50.000): C × 1,5661 para todo B; a eficiência sobe só 5,6424 bit/s/Hz
+  - Para C × 5 a partir de SNR = 1.000 seria preciso (1 + SNR)^5 - 1 = 1,005 × 10^15 (150,0 dB)
+  gráfico salvo em: graficos\exp2_shannon.png
+
+==============================================================================
+EXPERIMENTO 3 - Influência do ruído: B = 5 kHz, SNR de 0 a 40 dB
+==============================================================================
+SNR = 10^(SNR_dB/10)  e  C = B·log2(1 + SNR):
+
+   SNR (dB)   SNR (linear)   log2(1+SNR)   C (kbit/s)     ΔC (+5 dB)
+  ------------------------------------------------------------------
+          0           1,00         1,000         5,00              -
+          5           3,16         2,057        10,29          +5,29
+         10          10,00         3,459        17,30          +7,01
+         15          31,62         5,028        25,14          +7,84
+         20         100,00         6,658        33,29          +8,15
+         25         316,23         8,309        41,55          +8,26
+         30       1.000,00         9,967        49,84          +8,29
+         35       3.162,28        11,627        58,14          +8,30
+         40      10.000,00        13,288        66,44          +8,30
+
+Comparação em 10, 20, 30 e 40 dB:
+
+   SNR (dB)   SNR (linear)   C (kbit/s)   ΔC (+10 dB)   C / C(-10 dB)   C/B (bit/s/Hz)
+  ------------------------------------------------------------------------------------
+         10             10        17,30             -               -            3,459
+         20            100        33,29        +15,99           1,925            6,658
+         30          1.000        49,84        +16,55           1,497            9,967
+         40         10.000        66,44        +16,60           1,333           13,288
+
+Observações calculadas:
+  - +10 dB = SNR × 10; em SNR alta isso soma ≈ B·log2(10) = 16,61 kbit/s (soma, não multiplica)
+  - De 10 para 40 dB a SNR é multiplicada por 1.000, mas C só por 3,84
+  - Em 0 dB (sinal = ruído) C = B = 5.000 bit/s
+  gráfico salvo em: graficos\exp3_ruido.png
+
+==============================================================================
+EXPERIMENTO 4 - Nyquist x Shannon: B = 3 kHz, SNR = 30 dB (1.000)
+==============================================================================
+Limite de Shannon: C = 3.000 × log2(1 + 1.000) = 29,90 kbit/s (29.901,68 bit/s)
+N_max = √(1 + SNR) = 31,64 níveis = 4,984 bits/símbolo
+
+     N  m (bits)  Nyquist (kbit/s)  Shannon (kbit/s)  Nyquist/Shannon   Situação
+  --------------------------------------------------------------------------------------------
+     2         1              6,00             29,90           20,1 %   dentro do limite
+     4         2             12,00             29,90           40,1 %   dentro do limite
+     8         3             18,00             29,90           60,2 %   dentro do limite
+    16         4             24,00             29,90           80,3 %   dentro do limite
+    32         5             30,00             29,90          100,3 %   ULTRAPASSA o limite (+98,32 bit/s)
+    64         6             36,00             29,90          120,4 %   ULTRAPASSA o limite (+6.098,32 bit/s)
+
+Configurações em que Nyquist ultrapassa Shannon: N = 32, 64
+Obs.: o slide 24 da aula 12 arredonda log10(1.001) ≈ 3 e log10(2) ≈ 0,3 e obtém 30.000 bit/s.
+      Com esse valor N = 32 daria exatamente o limite; pelo valor exato (29.901,68 bit/s),
+      e porque N_max = 31,64 < 32, N = 32 já ultrapassa.
+  gráfico salvo em: graficos\exp4_nyquist_x_shannon.png
+

@@ -468,7 +468,7 @@ def experimento_3(plt, pasta: Path) -> None:
     print(f"  - Em 0 dB (sinal = ruído) C = B = {br_curto(C[0])} bit/s")
 
     if plt:
-        fig, (a1, a2) = plt.subplots(1, 2, figsize=(11, 4.4))
+        fig, (a1, a2) = plt.subplots(2, 1, figsize=(7.5, 8.6))
         y = [c / 1e3 for c in C]
         a1.plot(EXP3_SNR_DB, y, color=SERIES[0], marker="o", **LINHA)
         for db in EXP3_COMPARAR:
@@ -500,10 +500,11 @@ def experimento_3(plt, pasta: Path) -> None:
         formato_br(a2, "x")
         a2.set_title("(b) a mesma curva com a SNR em escala linear")
         a2.set_xlabel("SNR (linear)")
+        a2.set_ylabel("Capacidade C (kbit/s)")
         fig.suptitle(f"Experimento 3 – Influência do ruído (B = {br_curto(EXP3_B / 1e3)} kHz): "
-                     "C = B·log2(1 + SNR)", x=0.065, ha="left", fontsize=12, fontweight="bold",
+                     "C = B·log2(1 + SNR)", x=0.02, ha="left", fontsize=12, fontweight="bold",
                      color=COR["tinta"])
-        fig.tight_layout()
+        fig.tight_layout(h_pad=2.5)
         salvar(plt, fig, pasta, "exp3_ruido.png")
     print()
 
@@ -639,8 +640,8 @@ def modo_validar() -> bool:
     pelo_log10 = 3000 * math.log10(1001) / math.log10(2)
     caso("Aula 12, slide 24: Shannon com B = 3.000 Hz e SNR = 1.000 (valor exato)",
          perto(c, pelo_log10),
-         f"obtido {taxa(c)}; pelo caminho do slide, 3.000 × log10(1.001)/log10(2) = "
-         f"{br(pelo_log10)} bit/s")
+         f"obtido {taxa(c)}\n"
+         f"         pelo caminho do slide: 3.000 × log10(1.001)/log10(2) = {br(pelo_log10)} bit/s")
     slide = 3000 * round(math.log10(1001), 1) / round(math.log10(2), 1)
     caso("Aula 12, slide 24: valor do slide com os arredondamentos log10(1.001) ≈ 3, log10(2) ≈ 0,3",
          perto(slide, 30_000),

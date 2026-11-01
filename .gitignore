@@ -4,6 +4,7 @@ __pycache__/
 
 # Office / Windows
 ~$*
+~WRL*.tmp
 Thumbs.db
 desktop.ini
 
