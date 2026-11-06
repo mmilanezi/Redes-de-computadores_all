@@ -1,3 +1,6 @@
 [submodule "Trabalho 1/repo"]
 	path = Trabalho 1/repo
 	url = git@github.com:mmilanezi/Redes-de-computadores_Trab-1.git
+[submodule "Trabalho 2/repo"]
+	path = Trabalho 2/repo
+	url = git@github.com:mmilanezi/Redes-de-computadores_Trab-2.git
