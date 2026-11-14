@@ -1,0 +1,138 @@
+Semente: 2026
+
+==============================================================================
+1. CÓDIGOS DE LINHA (banda base)
+==============================================================================
+  Sequência: 1011000001101001 (16 bits, 7 uns e 9 zeros), V = 1 V
+
+  NRZ unipolar  bit 0 -> 0 V                 bit 1 -> +V
+  NRZ polar     bit 0 -> -V                  bit 1 -> +V
+  Manchester    bit 0 -> ↓ no meio do bit    bit 1 -> ↑ no meio do bit
+  (↑ = subida de -V para +V; ↓ = descida de +V para -V)
+
+  bit              1   0   1   1   0   0   0   0   0   1   1   0   1   0   0   1
+  NRZ unipolar    +V   0  +V  +V   0   0   0   0   0  +V  +V   0  +V   0   0  +V
+  NRZ polar       +V  -V  +V  +V  -V  -V  -V  -V  -V  +V  +V  -V  +V  -V  -V  +V
+  Manchester       ↑   ↓   ↑   ↑   ↓   ↓   ↓   ↓   ↓   ↑   ↑   ↓   ↑   ↓   ↓   ↑
+
+  código         transições   maior trecho sem transição   nível médio (DC)
+  NRZ unipolar            8                     5,0 bits            0,438 V
+  NRZ polar               8                     5,0 bits           -0,125 V
+  Manchester             23                     1,0 bits            0,000 V
+
+  figura salva: graficos\1_codigos_linha.png
+
+==============================================================================
+2. MODULAÇÕES DIGITAIS (ASK, FSK e BPSK)
+==============================================================================
+  Parâmetros:
+    taxa de bits         Rb = 1.000 bit/s (Tb = 1 ms)
+    portadora            fc = 2.000 Hz (2 ciclos por bit)
+    FSK                  f0 = 2.000 Hz, f1 = 4.000 Hz
+    amplitude            A = 1 V
+    amostragem           fs = 100.000 Hz (100 amostras por bit)
+    portadora            e(t) = A·sen(2π·f·t + θ)
+
+  ASK           bit 0 -> amplitude 0         bit 1 -> amplitude A
+  FSK           bit 0 -> f0 = 2 kHz          bit 1 -> f1 = 4 kHz
+  BPSK          bit 0 -> fase 180°           bit 1 -> fase 0°
+
+  bit               1    0    1    1    0    0    0    0    0    1    1    0    1    0    0    1
+  ASK               A    0    A    A    0    0    0    0    0    A    A    0    A    0    0    A
+  FSK              4k   2k   4k   4k   2k   2k   2k   2k   2k   4k   4k   2k   4k   2k   2k   4k
+  BPSK             0° 180°   0°   0° 180° 180° 180° 180° 180°   0°   0° 180°   0° 180° 180°   0°
+  (ASK: amplitude; FSK: frequência em kHz; BPSK: fase)
+
+  figura salva: graficos\2_modulacoes.png
+
+==============================================================================
+3. TESTES COM RUÍDO (os mesmos bits, canal AWGN)
+==============================================================================
+  O receptor correlaciona cada intervalo de bit com a forma de onda esperada
+  (soma das 100 amostras do bit) e compara o resultado com o limiar.
+
+  Eb/N0 = 10,0 dB  (SNR por amostra = Eb/N0 + 10·log10(2·Rb/fs) = -7,0 dB)
+  técnica        σ do ruído   bits enviados     bits recebidos    erros
+  NRZ unipolar       1,58 V   1011000001101001  1011000001101001  0
+  NRZ polar          2,24 V   1011000001101001  1011000001101001  0
+  Manchester         2,24 V   1011000001101001  1011000001101001  0
+  (x = bit errado)
+  figura salva: graficos\3_ruido_codigos_10dB.png
+
+  Eb/N0 = 10,0 dB  (SNR por amostra = Eb/N0 + 10·log10(2·Rb/fs) = -7,0 dB)
+  técnica        σ do ruído   bits enviados     bits recebidos    erros
+  ASK                1,12 V   1011000001101001  1011000001101001  0
+  FSK                1,58 V   1011000001101001  1011000001101001  0
+  BPSK               1,58 V   1011000001101001  1011000001101001  0
+  (x = bit errado)
+  figura salva: graficos\3_ruido_modulacoes_10dB.png
+
+  Eb/N0 = 0,0 dB  (SNR por amostra = Eb/N0 + 10·log10(2·Rb/fs) = -17,0 dB)
+  técnica        σ do ruído   bits enviados     bits recebidos    erros
+  NRZ unipolar       5,00 V   1011000001101001  1011x0x001x01001  3
+  NRZ polar          7,07 V   1011000001101001  1x1x000001101001  2
+  Manchester         7,07 V   1011000001101001  1011000001xx1001  2
+  (x = bit errado)
+  figura salva: graficos\3_ruido_codigos_0dB.png
+
+  Eb/N0 = 0,0 dB  (SNR por amostra = Eb/N0 + 10·log10(2·Rb/fs) = -17,0 dB)
+  técnica        σ do ruído   bits enviados     bits recebidos    erros
+  ASK                3,54 V   1011000001101001  101100x001101x01  2
+  FSK                5,00 V   1011000001101001  x011000x01x01001  3
+  BPSK               5,00 V   1011000001101001  1011000001101001  0
+  (x = bit errado)
+  figura salva: graficos\3_ruido_modulacoes_0dB.png
+
+==============================================================================
+4. BER x Eb/N0 (bits aleatórios, simulação com as formas de onda)
+==============================================================================
+  Cada ponto: até 100 erros ou 2.000.000 bits; pontos com BER teórica < 1e-6 não são simulados.
+  Teoria: Q(√(2·Eb/N0)) para NRZ polar, Manchester e BPSK (bit 0 = inverso do bit 1);
+          Q(√(Eb/N0)) para NRZ unipolar e ASK (bit 0 = nada) e para FSK (ondas ortogonais).
+
+   Eb/N0  NRZ unipolar     NRZ polar    Manchester   Q(√(Eb/N0))  Q(√(2Eb/N0))
+    0 dB      1,61e-01      7,86e-02      7,72e-02      1,59e-01      7,86e-02
+    1 dB      1,31e-01      5,65e-02      5,84e-02      1,31e-01      5,63e-02
+    2 dB      1,03e-01      3,71e-02      3,69e-02      1,04e-01      3,75e-02
+    3 dB      7,91e-02      2,22e-02      2,13e-02      7,89e-02      2,29e-02
+    4 dB      5,63e-02      1,38e-02      1,25e-02      5,65e-02      1,25e-02
+    5 dB      3,86e-02      6,85e-03      6,25e-03      3,77e-02      5,95e-03
+    6 dB      2,34e-02      2,32e-03      2,43e-03      2,30e-02      2,39e-03
+    7 dB      1,18e-02      8,33e-04      6,17e-04      1,26e-02      7,73e-04
+    8 dB      5,75e-03      1,69e-04      1,91e-04      6,00e-03      1,91e-04
+    9 dB      2,15e-03      2,70e-05      3,25e-05      2,41e-03      3,36e-05
+   10 dB      7,86e-04      3,50e-06      4,50e-06      7,83e-04      3,87e-06
+   11 dB      1,92e-04             -             -      1,94e-04      2,61e-07
+   12 dB      3,40e-05             -             -      3,43e-05      9,01e-09
+
+   Eb/N0           ASK           FSK          BPSK   Q(√(Eb/N0))  Q(√(2Eb/N0))
+    0 dB      1,60e-01      1,64e-01      7,98e-02      1,59e-01      7,86e-02
+    1 dB      1,31e-01      1,33e-01      5,76e-02      1,31e-01      5,63e-02
+    2 dB      1,04e-01      1,06e-01      3,73e-02      1,04e-01      3,75e-02
+    3 dB      7,77e-02      7,51e-02      2,30e-02      7,89e-02      2,29e-02
+    4 dB      5,86e-02      5,80e-02      1,29e-02      5,65e-02      1,25e-02
+    5 dB      3,86e-02      4,08e-02      6,45e-03      3,77e-02      5,95e-03
+    6 dB      2,38e-02      2,11e-02      1,83e-03      2,30e-02      2,39e-03
+    7 dB      1,18e-02      1,26e-02      5,89e-04      1,26e-02      7,73e-04
+    8 dB      5,80e-03      5,85e-03      2,20e-04      6,00e-03      1,91e-04
+    9 dB      2,50e-03      2,57e-03      3,60e-05      2,41e-03      3,36e-05
+   10 dB      8,75e-04      8,07e-04      3,00e-06      7,83e-04      3,87e-06
+   11 dB      1,94e-04      2,00e-04             -      1,94e-04      2,61e-07
+   12 dB      3,40e-05      2,75e-05             -      3,43e-05      9,01e-09
+
+  Eb/N0 para BER = 1e-5: 9,59 dB (NRZ polar, Manchester, BPSK)
+                         12,60 dB (NRZ unipolar, ASK, FSK) -> diferença de 3,01 dB
+  figura salva: graficos\4_ber.png
+
+==============================================================================
+5. ESPECTRO DOS SINAIS (4.000 bits aleatórios)
+==============================================================================
+  técnica         lobo principal (teoria)   largura   potência dentro
+  NRZ unipolar                  0 a 1 kHz     1 kHz            95,1 %
+  NRZ polar                     0 a 1 kHz     1 kHz            90,2 %
+  Manchester                    0 a 2 kHz     2 kHz            85,6 %
+  ASK                           1 a 3 kHz     2 kHz            96,1 %
+  FSK                           1 a 5 kHz     4 kHz            99,3 %
+  BPSK                          1 a 3 kHz     2 kHz            92,2 %
+  figura salva: graficos\5_espectro.png
+
