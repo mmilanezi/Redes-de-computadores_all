@@ -1,8 +1,8 @@
 # Trabalho 2 – Sistema de transmissão digital – Planejamento
 
 Entrega: apresentação de 15 min em 30/11/2026; GitHub informado no Moodle até 19h do mesmo dia.
-O professor ainda vai explicar o conteúdo e o trabalho em aula: as decisões abaixo são provisórias, e o
-código é modular para acomodar mudanças.
+A aula 13 (códigos de linha e modulação) confirmou as convenções do código: Manchester com subida no meio do
+bit para 1 e descida para 0 (slide 14), BPSK com 0 em −A e 1 em +A (slide 26). A Atividade 11 faz parte do trabalho.
 
 ## Decisões
 - **Python + numpy + matplotlib**, código em `repo/` (submódulo `Redes-de-computadores_Trab-2`).
@@ -41,7 +41,8 @@ código é modular para acomodar mudanças.
 - [x] Planejamento e núcleo validado
 - [x] Até 08/11 (feito em 13/11): `experimentos.py` – BER × Eb/N0 e × SNR (simulada + teórica), constelações
   com ruído, eficiência × limite de Shannon, mensagem de teste, `log_experimentos.txt` e `ber.csv` em `resultados/`.
-  Falta a execução oficial pelo Matheus.
+  Execução oficial pelo Matheus em 14/11.
+- [ ] Até 16/11: Atividade 11 (códigos de linha e ASK/FSK/BPSK com portadora); as figuras entram no relatório e nos slides
 - [ ] Até 15/11: README ("como outra pessoa usa"), relatório técnico, slides (modelo Unisinos em `Trabalho 1/`)
 - [ ] Até 22/11: vídeo de até 5 min e ensaio de 15 min
 - [ ] 23 a 30/11: folga para encaixar o que o professor explicar em aula
