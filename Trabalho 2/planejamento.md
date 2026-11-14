@@ -39,7 +39,9 @@ código é modular para acomodar mudanças.
 
 ## Próximos passos (cronograma adiantado)
 - [x] Planejamento e núcleo validado
-- [ ] Até 08/11: curvas BER × Eb/N0 (simulada + teórica), constelações com ruído, eficiência × limite de Shannon, logs
+- [x] Até 08/11 (feito em 13/11): `experimentos.py` – BER × Eb/N0 e × SNR (simulada + teórica), constelações
+  com ruído, eficiência × limite de Shannon, mensagem de teste, `log_experimentos.txt` e `ber.csv` em `resultados/`.
+  Falta a execução oficial pelo Matheus.
 - [ ] Até 15/11: README ("como outra pessoa usa"), relatório técnico, slides (modelo Unisinos em `Trabalho 1/`)
 - [ ] Até 22/11: vídeo de até 5 min e ensaio de 15 min
 - [ ] 23 a 30/11: folga para encaixar o que o professor explicar em aula
