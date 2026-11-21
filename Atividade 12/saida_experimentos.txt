@@ -1,0 +1,70 @@
+Amostras: [2,7; 0,3; -2,2; 1,3; 3,3] V
+
+==============================================================================
+1. QUANTIZADOR UNIFORME DE 3 BITS
+==============================================================================
+  Faixa: -3,40 V a +3,40 V (A = 3,4 V)
+  Bits por amostra: b = 3  ->  N = 2^3 = 8 intervalos
+  Passo: Δ = 2A/N = 2·3,4/8 = 0,8500 V   (erro máximo Δ/2 = 0,4250 V)
+
+  Regra nos limites: intervalo [inferior; superior), fechado à esquerda e aberto à direita;
+  só o último é fechado ([...; +3,40]). Valor sobre um limite interno vai para o intervalo
+  de cima: k = ⌊(x + A)/Δ⌋. Fora da faixa: saturação no intervalo da ponta.
+  Códigos: k em binário natural, do mais negativo (000) ao mais positivo (111).
+  Nível de reconstrução: ponto médio do intervalo, -A + (k + 1/2)·Δ.
+
+    k   intervalo (V)          nível (V)   código  
+    0   [-3,40; -2,55)            -2,975   000     
+    1   [-2,55; -1,70)            -2,125   001     
+    2   [-1,70; -0,85)            -1,275   010     
+    3   [-0,85; 0,00)             -0,425   011     
+    4   [0,00; 0,85)               0,425   100     
+    5   [0,85; 1,70)               1,275   101     
+    6   [1,70; 2,55)               2,125   110     
+    7   [2,55; 3,40]               2,975   111     
+
+==============================================================================
+2. AMOSTRAS QUANTIZADAS E CODIFICADAS
+==============================================================================
+  Instantes de amostragem: t = (n - 1)·Ts, com Ts = 1 ms adotado
+  Erro de quantização: e = x_q - x
+
+    n  t (ms)    x (V)   k   intervalo (V)         x_q (V)     e (V)  |e| (V)   código
+    1       0      2,7   7   [2,55; 3,40]            2,975    +0,275    0,275   111
+    2       1      0,3   4   [0,00; 0,85)            0,425    +0,125    0,125   100
+    3       2     -2,2   1   [-2,55; -1,70)         -2,125    +0,075    0,075   001
+    4       3      1,3   5   [0,85; 1,70)            1,275    -0,025    0,025   101
+    5       4      3,3   7   [2,55; 3,40]            2,975    -0,325    0,325   111
+
+  Códigos na ordem das amostras: 111 100 001 101 111
+  Sequência binária transmitida: 111100001101111  (5 × 3 = 15 bits)
+
+  Maior erro absoluto: amostra 5 (3,3 V -> 2,975 V), |e| = 0,325 V
+  Erro RMS das amostras: 0,202 V   (referência para erro uniforme: Δ/√12 = 0,245 V)
+  |e| ≤ Δ/2 = 0,425 V em todas as amostras dentro da faixa: sim
+  Mesmo código 111: amostras 1 e 5 (2,7 V e 3,3 V) ficam indistinguíveis no receptor.
+  Receptor (decodifica a sequência): 2,975; 0,425; -2,125; 1,275; 2,975 V
+
+==============================================================================
+3. GRÁFICOS
+==============================================================================
+  figura salva: graficos\amostras_originais.png
+  figura salva: graficos\valores_quantizados.png
+  figura salva: graficos\comparacao.png
+
+==============================================================================
+4. EFEITO DO PASSO DE QUANTIZAÇÃO (b = 1 a 8 bits)
+==============================================================================
+  Mesmas 5 amostras, faixa ±3,4 V, variando os bits por amostra.
+  Taxa de bits R = b · fs, com fs = 1/Ts = 1.000 amostras/s.
+
+    b     N     Δ (V)   Δ/2 (V)  maior |e|  erro RMS    Δ/√12  códigos distintos  R (bit/s)
+    1     2    3,4000    1,7000     1,6000    1,0890   0,9815           2 de 5         1.000
+    2     4    1,7000    0,8500     0,7500    0,4924   0,4907           3 de 5         2.000
+    3     8    0,8500    0,4250     0,3250    0,2016   0,2454           4 de 5         3.000
+    4    16    0,4250    0,2125     0,1875    0,1251   0,1227           5 de 5         4.000
+    5    32    0,2125    0,1062     0,0812    0,0445   0,0613           5 de 5         5.000
+    6    64    0,1062    0,0531     0,0469    0,0308   0,0307           5 de 5         6.000
+    7   128    0,0531    0,0266     0,0203    0,0126   0,0153           5 de 5         7.000
+    8   256    0,0266    0,0133     0,0117    0,0078   0,0077           5 de 5         8.000
+
