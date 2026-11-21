@@ -37,7 +37,33 @@ bit para 1 e descida para 0 (slide 14), BPSK com 0 em −A e 1 em +A (slide 26).
 - Limitação: na 16-QAM + Manchester, a contagem de pares inválidos usa os limiares da grade completa e acusa
   bem mais pares que erros reais (57 pares para 9 bits errados a 2 dB). Não usar esse número como medida de erro.
 
-## Próximos passos (cronograma adiantado)
+## Reta final (replanejado em 21/11; Atividades 11 e 12 entregues)
+Formato da entrega (o enunciado diz que "toda a documentação deve estar disponível no GitHub"):
+- `README.md` no repo: como outra pessoa instala, roda e lê os resultados (exigido pelo enunciado).
+- `docs/relatorio.md` no repo: relatório técnico (rubrica, item 9), renderizado pelo próprio GitHub.
+- Slides `.pptx` no modelo Unisinos, gerados por script como no Trabalho 1 (fora do repo).
+- Vídeo ≤ 5 min no YouTube (não listado), com o link no README.
+
+| Quando | O quê | Quem |
+|---|---|---|
+| 21/11 | Acabamento: formato brasileiro no log, nos gráficos e no terminal (`formato.py`); rótulo de Shannon | IA (feito) → Matheus roda de novo |
+| 21–22/11 | README + relatório técnico | IA escreve, Matheus revisa |
+| 23–24/11 | Slides (~13, para 15 min) + roteiro de fala | IA gera, Matheus revisa |
+| 25–26/11 | Roteiro do vídeo; gravação e upload | IA roteiro, Matheus grava |
+| 27–28/11 | Ensaio cronometrado de 15 min; ajustes | Matheus |
+| 29–30/11 | Folga; push final; link no Moodle até 19h do dia 30 | Matheus |
+
+21/11, tarde: README reescrito e `docs/relatorio.md` criado (análise: BPSK × 16-QAM = 3,84 dB por 4× eficiência;
+Manchester não muda a BER em Eb/N0 e dobra a banda; 16-QAM + Manchester perde 0,97 dB para uma QPSK porque 20 % da
+energia vai no deslocamento da constelação; BER → caractere/pacote; distância a Shannon 7,7–10,4 dB).
+Achado: a contagem de pares Manchester inválidos superestima erros também no BPSK (41 pares para 5 bits a 2 dB),
+porque é chip a chip e a decisão é suave. A saída do `sistema.py` agora avisa isso. `--help` com textos de ajuda;
+"1 bit errado" no singular no log (exige rodar `experimentos.py` de novo).
+
+Acabamento de 21/11: só formatação. Teste da IA: `validar` 27/27 e `ber.csv` idêntico ao da execução oficial
+de 14/11 (semente fixa); execução completa em ~25 s. O `ber.csv` continua com ponto decimal (para programas).
+
+## Próximos passos (cronograma antigo, até 14/11)
 - [x] Planejamento e núcleo validado
 - [x] Até 08/11 (feito em 13/11): `experimentos.py` – BER × Eb/N0 e × SNR (simulada + teórica), constelações
   com ruído, eficiência × limite de Shannon, mensagem de teste, `log_experimentos.txt` e `ber.csv` em `resultados/`.
