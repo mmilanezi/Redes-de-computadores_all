@@ -48,12 +48,12 @@ Formato da entrega (o enunciado diz que "toda a documentação deve estar dispon
 |---|---|---|
 | 21/11 | Acabamento: formato brasileiro no log, nos gráficos e no terminal (`formato.py`); rótulo de Shannon | IA (feito) → Matheus roda de novo |
 | 21–22/11 | README + relatório técnico | IA escreve, Matheus revisa |
-| 23–24/11 | Slides (~13, para 15 min) + roteiro de fala | IA gera, Matheus revisa |
+| 23–24/11 | Slides (~13, para 15 min) + roteiro de fala | IA gera, Matheus revisa (adiantado: 17 slides em 21/11, `scripts/gerar_apresentacao.py` → `roteiro_apresentacao.md`) |
 | 25–26/11 | Roteiro do vídeo; gravação e upload | IA roteiro, Matheus grava |
 | 27–28/11 | Ensaio cronometrado de 15 min; ajustes | Matheus |
 | 29–30/11 | Folga; push final; link no Moodle até 19h do dia 30 | Matheus |
 
-21/11, tarde: README reescrito e `docs/relatorio.md` criado (análise: BPSK × 16-QAM = 3,84 dB por 4× eficiência;
+21/11, tarde: README reescrito e `docs/relatorio.md` criado (análise: BPSK × 16-QAM = 3,85 dB por 4× eficiência;
 Manchester não muda a BER em Eb/N0 e dobra a banda; 16-QAM + Manchester perde 0,97 dB para uma QPSK porque 20 % da
 energia vai no deslocamento da constelação; BER → caractere/pacote; distância a Shannon 7,7–10,4 dB).
 Achado: a contagem de pares Manchester inválidos superestima erros também no BPSK (41 pares para 5 bits a 2 dB),
